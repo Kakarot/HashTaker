@@ -33,7 +33,7 @@ namespace HashTaker
         {
             IList<string> listOfValues = new List<string>();
             string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            XDocument xmlHashTakerDocument = XDocument.Load(path + @"\HashTaker.xml");
+            XDocument xmlHashTakerDocument = XDocument.Load(path + Path.DirectorySeparatorChar+@"HashTaker.xml");
             var xElementValue = xmlHashTakerDocument.Descendants(element);
             if (xElementValue != null && xElementValue.Any())
             {
@@ -54,7 +54,7 @@ namespace HashTaker
         {
             IList<string> listOfLocations = new List<string>();
             string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            XDocument xmlHashTakerDocument = XDocument.Load(path + @"\HashTaker.xml");
+            XDocument xmlHashTakerDocument = XDocument.Load(path + Path.DirectorySeparatorChar+@"HashTaker.xml");
             var xElementLocation = xmlHashTakerDocument.Descendants("Locations");
             string useLocation = String.Empty;
             if (xElementLocation != null && xElementLocation.Any())
