@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HashTaker>
+  
+<!--Add new extension elements containing the extensions you wish to HASH-->
+  <Extensions>
+    <extension>.exe</extension>
+    <extension>.dll</extension>
+    <extension>.dmg</extension>
+</Extensions>
+
+  <!--Directories to be parsed relative to the current directory-->
+  <Locations IncludeCurrentDirectory ="yes">
+    <location>Services</location>
+    <location>WebApps\RaffleManager\bin</location>
+    <location>Windows</location>
+  </Locations>
+
+  
+</HashTaker>    
