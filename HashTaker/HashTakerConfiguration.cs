@@ -20,8 +20,8 @@ namespace HashTaker
         {
             var extensions = this.GetValuesFromXML("extension");
             var dir = new DirectoryInfo(path);
-            IEnumerable<FileInfo> intermediateFiles = dir.EnumerateFiles();
-            return intermediateFiles.Where(i => extensions.Contains(i.Extension)
+            IEnumerable<FileInfo> currentFiles = dir.EnumerateFiles();
+            return currentFiles.Where(i => extensions.Contains(i.Extension)
                 && i.Name != "HashTaker.exe");
         }
 
