@@ -68,5 +68,17 @@ namespace HashTaker
             }
             return string.Equals(useLocation, "yes", StringComparison.OrdinalIgnoreCase);
         }
+
+		public IHash DetermineAlgorithmToUse()
+		{
+			IList<string> algorithms = this.GetValuesFromXML("Algorithm");
+			string algorithm = algorithms[0];
+			IHash algorithmObject = null;
+			if(algorithm.Equals("sha1",StringComparison.CurrentCultureIgnoreCase))
+			{
+				algorithmObject = new SHA1Hash();
+		    }
+			return algorithmObject;
+		}
     }
 }

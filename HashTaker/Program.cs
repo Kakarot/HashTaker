@@ -1,4 +1,4 @@
-﻿using HashTaker;
+using HashTaker;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ namespace HashTaker
     class Program
     {
         static int Main(string[] args)
-        {  
+		{
             try
             {
                 HashTakerConfiguration htc = new HashTakerConfiguration();
@@ -21,11 +21,18 @@ namespace HashTaker
                 IList<string> locations = htc.GetValuesFromXML("location");
                 StringBuilder sb = new StringBuilder();
 
+				IHash algorithm = htc.DetermineAlgorithmToUse();
+				if (algorithm == null)
+				{
+					throw new NullReferenceException("hash algorithm was null after reading XML configuration."+
+					                                 "Check HashTaker.xml.");
+				}
+
                 //If HashTaker.xml is set to hash the current directory, perform this logic 
                 //This assembly will not take the hash of itself when using the current directory.
                 if (htc.UseCurrentDirectory())
                 {
-                    sb.Append(scripter.GenerateCSVHash(htc.GetListOfBuiltFiles(Directory.GetCurrentDirectory()), new SHA1Hash()));
+                    sb.Append(scripter.GenerateCSVHash(htc.GetListOfBuiltFiles(Directory.GetCurrentDirectory()), algorithm));
 #if DEBUG
                     ConsoleGreen(@"--Files in Current Directory--");
                     foreach (var f in htc.GetListOfBuiltFiles(Directory.GetCurrentDirectory()))

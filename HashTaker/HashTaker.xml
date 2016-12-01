@@ -14,5 +14,10 @@
     <!--<location>AnotherFolder2</location>-->
   </Locations>
 
+	<!--Only one format can be specified at a time-->
+  <Format>csv</Format>
+
+	<!--Only one algorithm can be specified at a time-->
+	<Algorithm>SHA1</Algorithm>
   
 </HashTaker>    
