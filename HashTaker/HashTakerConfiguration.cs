@@ -22,7 +22,8 @@ namespace HashTaker
             var dir = new DirectoryInfo(path);
             IEnumerable<FileInfo> currentFiles = dir.EnumerateFiles();
             return currentFiles.Where(i => extensions.Contains(i.Extension)
-                && i.Name != "HashTaker.exe");
+                 && i.Name != System.Reflection.Assembly.GetEntryAssembly().GetName().Name + ".exe"
+                 && i.Name != System.Reflection.Assembly.GetEntryAssembly().GetName().Name + ".dll");
         }
 
         /// <summary>

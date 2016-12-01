@@ -10,9 +10,8 @@
 
   <!--Directories to be parsed relative to the current directory-->
   <Locations IncludeCurrentDirectory ="yes">
-    <location>Services</location>
-    <location>WebApps\RaffleManager\bin</location>
-    <location>Windows</location>
+    <!--<location>AnotherFolder</location>-->
+    <!--<location>AnotherFolder2</location>-->
   </Locations>
 
   

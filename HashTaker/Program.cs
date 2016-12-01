@@ -9,9 +9,7 @@ namespace HashTaker
     class Program
     {
         static int Main(string[] args)
-        {
-            Console.WriteLine("1"); //debug why this doesn't work in windows.
-            Console.ReadLine();
+        {  
             try
             {
                 HashTakerConfiguration htc = new HashTakerConfiguration();
